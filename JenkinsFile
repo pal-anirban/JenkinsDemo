@@ -31,7 +31,7 @@ pipeline {
 		}
 		stage('Tomcat Deployment') {
             steps {
-               	deploy adapters: [tomcat9($Tomcat_Login, path: '', url: $Tomcat_URL)], contextPath: 'TimeTracker', onFailure: false, war: '**/*.jar'
+               	deploy adapters: [tomcat9(Tomcat_Login, path: '', url: Tomcat_URL)], contextPath: 'TimeTracker', onFailure: false, war: '**/*.jar'
             }
 
             post {
