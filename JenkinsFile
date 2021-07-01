@@ -22,7 +22,7 @@ pipeline {
        			 }
                 success {
                 	echo 'Build Successful'
-                    archiveArtifacts 'target/*.war'        
+                    archiveArtifacts 'web/target/*.war'        
                 }   
             }       
 		}
