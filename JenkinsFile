@@ -14,17 +14,7 @@ pipeline {
         }
  		stage("Parallel Execution for Build") {
 			steps {
-				parallel(
-				      cleaning: {
-					bat "mvn clean"
-				      },
-				      testing: {
-					bat "mvn test"
-				      },
-				      packageing: {
-					bat "mvn package"
-				      }
-				)
+				bat "mvn clean test package"
 			}
 			post {
 			    always { 
