@@ -38,8 +38,8 @@ pipeline {
                 	}         
                 }
                 failure {
-            		mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Build Failure', to: 'anirbantatai@gmail.com'
-        }   
+            		mail bcc: '', body: 'Build Failed', cc: '', from: '', replyTo: '', subject: 'Build Failure', to: 'anirbantatai@gmail.com'
+        		}   
             }       
 		}
 		stage('Tomcat Deployment') {
