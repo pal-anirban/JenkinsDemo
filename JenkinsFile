@@ -32,7 +32,7 @@ pipeline {
        			 }
                 success {
                 	echo 'Build Successful'
-                    archiveArtifacts 'target/*.war'
+                    archiveArtifacts 'target/*.jar'
                     script {
 						DeployFlag = 'Y'
                 	}         
@@ -48,7 +48,7 @@ pipeline {
             	    expression { env.DeployFlag == 'Y' }        	    
             	}
             	steps {
-               		deploy adapters: [tomcat9($Tomcat_Login, path: '', url: $Tomcat_URL)], contextPath: 'TimeTracker', onFailure: false, war: '**/*.war'
+               		deploy adapters: [tomcat9($Tomcat_Login, path: '', url: $Tomcat_URL)], contextPath: 'TimeTracker', onFailure: false, war: '**/*.jar'
            		 }	
             }
 
