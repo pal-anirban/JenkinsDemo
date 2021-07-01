@@ -36,10 +36,7 @@ pipeline {
                     script {
 						DeployFlag = 'Y'
                 	}         
-                }
-                failure {
-            		mail bcc: '', body: 'Build Failed', cc: '', from: '', replyTo: '', subject: 'Build Failure', to: 'anirbantatai@gmail.com'
-        		}   
+                }   
             }       
 		}
 		stage('Tomcat Deployment') {
