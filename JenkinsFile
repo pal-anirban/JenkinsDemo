@@ -14,7 +14,17 @@ pipeline {
         }
  		stage("Build") {
 			steps {
-				bat "mvn clean test package"
+				parallel(
+				      cleaning: {
+					bat "mvn clean"
+				      },
+				      testing: {
+					bat "mvn test"
+				      },
+				      packageing: {
+					bat "mvn -Dmaven.test.failure.ignore=true package"
+				      }
+				)
 			}
 			post {
 			    always { 
