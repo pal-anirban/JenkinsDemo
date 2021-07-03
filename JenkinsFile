@@ -5,6 +5,7 @@ pipeline {
         TomcatPath = 'C:/External Software/apache-tomcat-9.0.46-windows-x64/apache-tomcat-9.0.46'
         Tomcat_Login = 'jenkinsJenkinsMS'
         Tomcat_URL = 'http://localhost:8081/'
+        Context_Path = 'TimeTracker'
     }
     stages {
         stage('Checkout') {
@@ -38,7 +39,7 @@ pipeline {
 		}
 		stage('Tomcat Deployment') {
             steps {
-               	deploy adapters: [tomcat9(credentialsId: Tomcat_Login, path: '', url: Tomcat_URL)], contextPath: 'TimeTracker', onFailure: false, war: '**/*.war'
+               	deploy adapters: [tomcat9(credentialsId: Tomcat_Login, path: '', url: Tomcat_URL)], contextPath: Context_Path, onFailure: false, war: '**/*.war'
             }
 
             post {
